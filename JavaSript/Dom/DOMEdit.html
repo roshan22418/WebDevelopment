@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dom edit and remove</title>
+    <!-- <style>
+        
+    </style> -->
+</head>
+<body style="background-color: black;color: white;">
+    <div class="parent">
+        <ul class = "listMain">
+            <li>java</li>
+            
+        </ul>
+    </div>
+</body>
+<script>
+    function addLanguage(language){
+        const li = document.createElement('li');
+        li.innerText = language;
+        const parent = document.querySelector('.listMain')
+        parent.appendChild(li)
+    }
+
+    function addOptimLanguage(language){
+        const li = document.createElement('li')
+        // li.innerText = `${language}`
+        const listvalue = document.createTextNode(language);
+        li.appendChild(listvalue)
+        document.querySelector('.listMain').appendChild(li);
+    }
+
+    // addLanguage("python");
+    // addLanguage("C++")
+    addOptimLanguage("roshan")
+
+    //Edit
+    const secondLanguage = document.querySelector("li:nth-child(2)")
+    // secondLanguage.innerHTML = "javaSCript"
+    const newLi = document.createElement('li');
+    newLi.textContent = "javaScript"
+    secondLanguage.replaceWith(newLi)
+
+
+    const firstChild = document.querySelector("li:first-child");
+    // console.log(firstChild)
+    firstChild.outerHTML = "<li>THis is my new way Hello in golong</li>"
+
+
+    //Remove
+    const lastlang = document.querySelector("li:last-child")
+    lastlang.remove();
+</script>
+</html>
